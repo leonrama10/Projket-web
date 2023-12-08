@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Reservation</title>
+    <link rel="stylesheet" href="reserving.css">
+</head>
+<body>
+    <div class="reservation-container">
+        <h1>Make a Reservation</h1>
+        <form id="reservationForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <textarea id="comments" placeholder="Any special requests or comments"></textarea>
+            <button type="submit">Make Reservation</button>
+        </form>
+        <div id="reservationStatus"></div>
+    </div>
+    <script src="reserving.js"></script>
+</body>
+</html>
