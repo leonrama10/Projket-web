@@ -9,7 +9,7 @@ header{
     right: 0;
     left: 0;
     z-index: 100;
-    background-color: gold;
+    background-color: black;
     width: 100%;
     height: 180px;
 }
@@ -25,6 +25,7 @@ header{
     /* font-size: 30px; */
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    color: gold;
 }
 
 .site-nav{
@@ -47,17 +48,17 @@ header{
 .site-nav .site-nav_menu a{
     display: inline;
     text-decoration: none;
-    color: black;
+    color: gold;
     transition: 0.4s;
     padding: 4px;
 }
 .site-nav .site-nav_menu a:hover{
-    color: gold;
-    background-color: black;
+    color: black;
+    background-color: gold;
 }
 
 .site-nav .site-nav_menu .border-a-1{
-    border: 2px solid black;
+    border: 2px solid gold;
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 6px;
@@ -68,7 +69,7 @@ header{
 .hero{
     height: 100%;
     width: 100%;
-    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../../Documents/GitHub/Projket-web/images/banner-rezervime.jpg) ;
+    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(images/banner-rezervime.jpg) ;
     background-position: center;
     background-size:cover ;
     position: absolute;
