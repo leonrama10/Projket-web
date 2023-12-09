@@ -1,15 +1,93 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
   margin: 0;
   padding: 0;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: black;
 }
 
+header{
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  /* background-color: gold; */
+  background-color: black;
+  width: 100%;
+  height: 180px;
+}
+
+.site-logo {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  font-size: 24px;
+}
+.site-logo .s-l-h1-1{
+  padding-top: 40px;
+  font-size: 50px;
+  /* color: black; */
+  color: gold;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+.site-nav{
+  font-family: "Fed Pig Sans";
+  font-weight: bold;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.site-nav_menu li{
+  display: inline-block;
+  padding-top: 80px;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.site-nav .site-nav_menu a{
+  display: inline;
+  text-decoration: none;
+  /* color: black; */
+  color: gold;
+  transition: 0.4s;
+  padding: 4px;
+}
+.site-nav .site-nav_menu a:hover{
+  /* color: gold; */
+  color: black;
+  /* background-color: black; */
+  background-color: gold;
+}
+
+.site-nav .site-nav_menu .border-a-1{
+  border: 2px solid gold;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/*reservation-container*/
+
 .reservation-container {
+  position: relative;
+  top: 10%;
+  left: 35%;
   background-color: #fff;
   padding: 30px;
   border-radius: 8px;
