@@ -37,12 +37,12 @@
                 <img src="images/gp.png">
                 <img src="images/tw.png">
             </div>
+            
             <form id="logIn" class="input-group">
                 <input type="text" class="input-field" placeholder="User Id" required>
-                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <input type="password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>Remember Password</span>
                 <button type="submit" class="submit-btn">Log In</button>
-                <!-- <p></p> -->
             </form>
             <form id="Register" class="input-group">
                 <input type="text" class="input-field" placeholder="User Id" required>
@@ -54,20 +54,51 @@
      
     </div>
     <script>
-        var x = document.getElementById("logIn");
-        var y = document.getElementById("Register");
-        var z = document.getElementById("btn");
+        
+         var x = document.getElementById("logIn");
+         var y = document.getElementById("Register");
+         var z = document.getElementById("btn");
 
-        function Register(){
-            x.style.left ="-400px";
-            y.style.left ="50px";
-            z.style.left ="110px"
+         function Register(){
+             x.style.left ="-400px";
+             y.style.left ="50px";
+             z.style.left ="110px"
+         }
+         function logIn(){
+             x.style.left ="50px";
+             y.style.left ="450px";
+             z.style.left ="0"
         }
-        function logIn(){
-            x.style.left ="50px";
-            y.style.left ="450px";
-            z.style.left ="0"
-        }
+
+        function validateLogin() {
+    var loginUserId = document.getElementById("loginUserId").value;
+    var loginPassword = document.getElementById("loginPassword").value;
+
+    if (loginUserId.trim() === "" || loginPassword.trim() === "") {
+        alert("Ju lutemi shkruani emrin e përdoruesit dhe fjalëkalimin për t'u identifikuar.");
+        return false;
+    }
+
+    if (!isValidPassword(loginPassword)) {
+        alert("Fjalëkalimi duhet të përmbajë të paktën një shkronjë të madhe, një numër dhe një karakter të veçantë.");
+        return false;
+    }
+
+    window.location.href = "index.html";
+
+    return true;
+}
+
+function isValidPassword(password) {
+    var uppercaseRegex = /[A-Z]/;
+    var numberRegex = /\d/;
+    var specialCharacterRegex = /[!@#$%^&*(),.?":{}|<>]/;
+
+    return uppercaseRegex.test(password) &&
+           numberRegex.test(password) &&
+           specialCharacterRegex.test(password);
+}
+        
 
     </script>
  
