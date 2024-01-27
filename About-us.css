@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: black;
+     color: gold;
+    text-align: center;
+    padding: 1em 0;
+    width: 100%;
+    height: 150px;
+}
+
+.title{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.site-nav{
+    font-family: "Fed Pig Sans";
+    font-weight: bold;
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.site-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.site-nav a {
+    color: gold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.site-nav a:hover {
+    color: black;
+    background-color: gold;
+    text-decoration: none;
+}
+
+/*Slider*/
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 400px; /* Set the desired height for your slider */
+    padding-top: 20px;
+}
+
+.slider-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%; /* Ensure the image takes up the full height of the slider */
+    object-fit: cover; /* Maintain the aspect ratio and cover the entire slide */
+}
+
+#prevBtn, #nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: none;
+    color: #333;
+    padding: 10px;
+}
+
+#prevBtn {
+    left: 0;
+}
+
+#nextBtn {
+    right: 0;
+}
+
+.about-us {
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+footer {
+    background-color: black;
+    color: gold;
+    text-align: center;
+    padding: 1em 0;
+}
