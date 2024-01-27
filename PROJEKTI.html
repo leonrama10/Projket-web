@@ -17,7 +17,7 @@
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="menu.html">MENUS</a></li>
                     <li><a href="PROJEKTI.html">LOGIN</a></li>
-                    <li><a href="#">CATERING</a></li>
+                    <li><a href="About-us.html">ABOUT US</a></li>
                     <li><a href="#">LOCATIONS</a></li>
                     <li><a href="#">BBQ BOX</a></li>
                     <li><a class="border-a-1" href="reserving.html">RESERVING</a></li>
@@ -38,13 +38,14 @@
                 <img src="images/tw.png">
             </div>
             
-            <form id="logIn" class="input-group">
+            <!--ketu kena me vendos method="post", dhe action="login.php"-->
+            <form id="logIn" class="input-group" method="post" action="login.php">
                 <input type="text" class="input-field" placeholder="User Id" required>
                 <input type="password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>Remember Password</span>
                 <button type="submit" class="submit-btn">Log In</button>
             </form>
-            <form id="Register" class="input-group">
+            <form id="Register" class="input-group" method="post" action="register.php">
                 <input type="text" class="input-field" placeholder="User Id" required>
                 <input type="password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>I agree to the terms & conditions Password</span>
