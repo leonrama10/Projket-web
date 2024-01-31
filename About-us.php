@@ -13,13 +13,13 @@
         <h1 class="title">L%D MEAT</h1>
         <nav class="site-nav">
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                    <li><a href="menu.html">MENUS</a></li>
-                    <li><a href="PROJEKTI.html">LOGIN</a></li>
-                    <li><a href="About-us.html">ABOUT US</a></li>
+                <li><a href="index.php">HOME</a></li>
+                    <li><a href="menu.php">MENUS</a></li>
+                    <li><a href="PROJEKTI.php">LOGIN</a></li>
+                    <li><a href="About-us.php">ABOUT US</a></li>
                     <li><a href="#">LOCATIONS</a></li>
                     <li><a href="#">BBQ BOX</a></li>
-                    <li><a class="border-a-1" href="reserving.html">RESERVING</a></li>
+                    <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
             </ul>
         </nav>
     </header>
@@ -27,10 +27,10 @@
 <div class="slider-container">
     <button id="prevBtn">&lt;</button>
     <div class="slider-content">
-        <div class="slide"><a href="menu.html"><img src="images/menu-foto-1.avif" alt="Image 1" title="this link is going to sent you to menu"></a></div>
-        <div class="slide"><a href="menu.html"><img src="images/menu-foto-2.avif" alt="Image 2" title="this link is going to sent you to menu"></a></div>
-        <div class="slide"><a href="menu.html"><img src="images/menu-foto-3.avif" alt="Image 3" title="this link is going to sent you to menu"></a></div>
-        <div class="slide"><a href="menu.html"><img src="images/menu-foto-4.avif" alt="Image 4" title="this link is going to sent you to menu"></a></div>
+        <div class="slide"><a href="menu.php"><img src="images/menu-foto-1.avif" alt="Image 1" title="this link is going to sent you to menu"></a></div>
+        <div class="slide"><a href="menu.php"><img src="images/menu-foto-2.avif" alt="Image 2" title="this link is going to sent you to menu"></a></div>
+        <div class="slide"><a href="menu.php"><img src="images/menu-foto-3.avif" alt="Image 3" title="this link is going to sent you to menu"></a></div>
+        <div class="slide"><a href="menu.php"><img src="images/menu-foto-4.avif" alt="Image 4" title="this link is going to sent you to menu"></a></div>
     </div>
     <button id="nextBtn">&gt;</button>
 </div>
