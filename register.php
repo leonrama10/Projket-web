@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = new mysqli("localhost", "your_db_username", "your_db_password", "your_db_name");
+    $conn = new mysqli("localhost", "root", "", "dizajn_web");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
