@@ -1,10 +1,10 @@
 <?php
 class DatabaseConnection{
 
-private $server = 'localhost';
-private $username = 'root';
-private $password = '';
-private $database = 'dizajn_web';
+private $server = "localhost";
+private $username = "root";
+private $password = " ";
+private $database = "MariaDB";
 
 
 function startConnection(){
