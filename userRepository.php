@@ -11,15 +11,13 @@ function insertUser($user){
 $conn = $this->connection;
 
 $id = $user->getID();
-$name = $user->getname();
-$phone = $user->getPhoneNumber();
 $email = $user->getEmail();
 $password = $user->getPassword();
 
-$sql = "INSERT INTO user(ID,name,phoneNumber,email,password) VALUES (?,?,?,?,?)";
+$sql = "INSERT INTO user(ID,email,password) VALUES (?,?,?)";
 
 $statement = $conn->prepare($sql);
-$statement->execute([$id,$name,$phone,$email,$password]);
+$statement->execute([$id,$email,$password]);
 
 echo "<script> alert('User has been inserted succsesfuly'); </script>";
 }
@@ -42,13 +40,13 @@ function getUserById($ID){
     $user = $statement->fetch();
     return $user;
 }
-function updateUser($ID, $name, $phoneNumber, $email, $password){
+function updateUser($ID, $email, $password){
     $conn = $this->connection;
-    $sql = "UPDATE user SET name = ?, phoneNumber = ?, email = ?, password = ? WHERE ID = ?";
+    $sql = "UPDATE user SET  email = ?, password = ? WHERE ID = ?";
 
     $statement = $conn->prepare($sql);
 
-    $statement->execute([$name, $phoneNumber, $email, $password, $ID]);
+    $statement->execute([$email, $password, $ID]);
    
     echo "<script> alert('update was successful');</script>";
 }

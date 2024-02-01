@@ -1,38 +1,30 @@
 <?php
-class DatabaseConnection{
+class DatabaseConnection {
+    private $server = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $database = "dizajn_web";
+    private $conn;
 
-private $server = "localhost";
-private $username = "root";
-private $password = " ";
-private $database = "MariaDB";
+    function startConnection() {
+        try {
+            $this->conn = new mysqli($this->server, $this->username, $this->password, $this->database);
+            
+            // Check connection
+            if ($this->conn->connect_error) {
+                die("Connection failed: " . $this->conn->connect_error);
+            }
 
-
-function startConnection(){
-
-try{
-    $conn = new PDO("mysql:host=$this->server;dbname=$this->database",$this->username,$this->password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    return $conn;
-  } catch(PDOException $e){
-    echo "Database Connection Failed".$e->getMessage();
-    return null;
+            return $this->conn;
+        } catch (Exception $e) {
+            echo "Database Connection Failed: " . $e->getMessage();
+            return null;
+        }
+    }
+    
 }
+?>
 
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-}
 
 
 

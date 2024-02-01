@@ -6,18 +6,19 @@ include 'databaseConnection.php';
 $databaseConnection = new DatabaseConnection();
 $pdo = $databaseConnection->startConnection();
 
-if (isset($_POST['submit-form'])) {
+if (isset($_POST['submit-1'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $message = '';
 
     $query = $pdo->prepare('SELECT * FROM user WHERE email = :email');
-    $query->bindParam(':email', $email);
+    $query->bind_param(':email', $email);
     $query->execute();
+
     $user = $query->fetch();
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['ID'];
+    if ($user && password_verify($password, $User['password'])) {
+        $_SESSION['user_id'] = $User['ID'];
         $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';
         header("Home: index.php");
         // Consider using header() to redirect to a different page after successful login
