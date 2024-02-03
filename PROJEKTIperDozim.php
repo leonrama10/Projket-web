@@ -15,13 +15,13 @@
             </div>
             <nav class="site-nav">
                 <ul class="site-nav_menu">
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="menu.html">MENUS</a></li>
-                    <li><a href="PROJEKTI.html">LOGIN</a></li>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="menu.php">MENUS</a></li>
+                    <li><a href="PROJEKTI.php">LOGIN</a></li>
                     <li><a href="#">CATERING</a></li>
                     <li><a href="#">LOCATIONS</a></li>
                     <li><a href="#">BBQ BOX</a></li>
-                    <li><a class="border-a-1" href="reserving.html">RESERVING</a></li>
+                    <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
                 </ul>
             </nav>
         </div>
@@ -38,17 +38,17 @@
                 <img src="images/gp.png">
                 <img src="images/tw.png">
             </div>
-            <form id="logIn" class="input-group">
-                <input type="text" class="input-field" placeholder="User Id" required>
-                <input type="password" class="input-field" placeholder="Enter Password" required>
+            <form id="logIn" class="input-group" method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
+                <input type="text" name = "email" class="input-field" placeholder="User Id" required>
+                <input type="password" name = "password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>Remember Password</span>
-                <button type="submit" class="submit-btn">Log In</button>
+                <input name="submit-1" class="submit-btn">Log In</button>
             </form>
-            <form id="Register" class="input-group">
-                <input type="text" class="input-field" placeholder="User Id" required>
-                <input type="password" class="input-field" placeholder="Enter Password" required>
+            <form id="Register" class="input-group"  method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
+                <input type="text" name = "email" class="input-field" placeholder="User Id" required>
+                <input type="password" name = "password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>I agree to the terms & conditions Password</span>
-                <button type="submit" class="submit-btn">Register</button>
+                <input name="submit-1" type="submit" class="submit-btn">Register</button>
             </form>
         </div>
      

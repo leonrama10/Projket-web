@@ -1,28 +1,30 @@
 <?php
+ini_set('session.gc_maxlifetime', 3600); // Set session lifetime to 1 hour
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = new mysqli("localhost", "your_db_username", "your_db_password", "your_db_name");
+include 'databaseConnection.php';
+$databaseConnection = new DatabaseConnection();
+$pdo = $databaseConnection->startConnection();
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $username = $_POST['username'];
+if (isset($_POST['submit-1'])) {
+    $email = $_POST['email'];
     $password = $_POST['password'];
+    $message = '';
 
-    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-    $result = $conn->query($sql);
+    $query = $pdo->prepare('SELECT * FROM user WHERE email = :email');
+    $query->bind_param(':email', $email);
+    $query->execute();
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $_SESSION['user_id'] = $row['id'];
-        $_SESSION['role'] = $row['role'];
-        header("Location: dashboard.php");
+    $user = $query->fetch();
+
+    if ($user && password_verify($password, $User['password'])) {
+        $_SESSION['user_id'] = $User['ID'];
+        $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';
+        header("Home: index.php");
+        // Consider using header() to redirect to a different page after successful login
+        exit();
     } else {
-        echo "Invalid username or password";
+        $message = 'Invalid email or password';
     }
-
-    $conn->close();
 }
 ?>

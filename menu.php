@@ -19,10 +19,10 @@
             </div>
             <nav class="site-nav">
                 <ul class="site-nav_menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">MENUS</a></li>
-                    <li><a href="PROJEKTI.html">LOGIN</a></li>
-                    <li><a href="About-us.html">ABOUT US</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="menu.php">MENUS</a></li>
+                    <li><a href="PROJEKTI.php">LOGIN</a></li>
+                    <li><a href="About-us.php">ABOUT US</a></li>
                     <li><a href="#">LOCATIONS</a></li>
                     <li><a href="#">BBQ BOX</a></li>
                     <li><a class="border-a-1" href="#">RESERVING</a></li>
