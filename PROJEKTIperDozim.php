@@ -42,14 +42,16 @@
                 <input type="text" name = "email" class="input-field" placeholder="User Id" required>
                 <input type="password" name = "password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>Remember Password</span>
-                <input name="submit-1" class="submit-btn">Log In</button>
+                <input name="submit-1" class="submit-btn">
             </form>
-            <form id="Register" class="input-group"  method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
-                <input type="text" name = "email" class="input-field" placeholder="User Id" required>
-                <input type="password" name = "password" class="input-field" placeholder="Enter Password" required>
-                <input type="checkbox" class="checkbox"><span>I agree to the terms & conditions Password</span>
-                <input name="submit-1" type="submit" class="submit-btn">Register</button>
+     
+        <form id="Register" class="input-group" method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
+         <input type="text" name="new_username" class="input-field" placeholder="User Id" required>
+         <input type="password" name="new_password" class="input-field" placeholder="Enter Password" required>
+            <input type="checkbox" class="checkbox"><span>I agree to the terms & conditions</span>
+            <input name="submit-2" type="submit" class="submit-btn" value="Register">
             </form>
+
         </div>
      
     </div>

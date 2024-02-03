@@ -2,22 +2,21 @@
 include_once './userRepository.php';
 include_once './user.php';
 
+if (isset($_POST['submit-2'])) {
+    if (empty($_POST['new_username']) || empty($_POST['new_password'])) {
+        echo "Fill all fields!";
+    } else {
+        $newUsername = $_POST['new_username'];
+        $newPassword = $_POST['new_password'];
 
-if(isset($_POST['submit-1'])){
-if(empty($_POST['email']) || empty($_POST['password'])){
+        $user = new User($newUsername, $newPassword);
+        $userRepository = new UserRepository();
 
-echo "Fill all fields!";
-} else{
-
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $user = new User(null,$email,$password);
-    $userRepository = new userRepository();
-
-    $userRepository->insertUser($user);
+        $userRepository->insertUser($user);
+    }
 }
-}
+?>
+
 
 
 

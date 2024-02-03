@@ -11,14 +11,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUsername = $_POST['new_username'];
     $newPassword = $_POST['new_password'];
 
-    $sql = "INSERT INTO user (username, password, role) VALUES ('$newUsername', '$newPassword', 'user')";
+    $stmt = $conn->prepare("INSERT INTO user (username, password, role) VALUES (?, ?, 'user')");
+    $stmt->bind_param("ss", $newUsername, $newPassword);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         echo "Registration successful";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
 
+    $stmt->close();
     $conn->close();
 }
 ?>
+
