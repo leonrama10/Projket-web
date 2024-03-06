@@ -1,80 +1,87 @@
 <?php
-include './databaseConnection.php';
-include './user.php';
+include_once './databaseConnection.php';
 
-class UserRepository {
+class UserRepository
+{
     private $connection;
 
-    function __construct() {
+    function __construct()
+    {
         $conn = new DatabaseConnection;
         $this->connection = $conn->startConnection();
     }
 
-    function insertUser($user) {
+    function insertUser($user)
+    {
         $conn = $this->connection;
-
-      
         $email = $user->getEmail();
         $password = $user->getPassword();
+       
 
-        $sql = "INSERT INTO user(email,password) VALUES (?,?)";
+        $sql = "INSERT INTO user (email,password) VALUES (?,?)";
 
         $statement = $conn->prepare($sql);
-        $statement->execute([$email, $password]);
 
-        echo "<script> alert('User has been inserted successfully'); </script>";
+        try{
+        $statement->execute([ $email, $password]);
+        header('Location: menu.php');
+        } catch(PDOException $e){
+            echo "Error: ".$e->getMessage();
+        }
     }
 
-    function getAllUsers() {
+    function getAllUsers()
+    {
         $conn = $this->connection;
+
         $sql = "SELECT * FROM user";
 
-        $result = $conn->query($sql);
+        $statement = $conn->query($sql);
+        $users = $statement->fetchAll();
 
-        if ($result) {
-            $users = $result->fetch_all(MYSQLI_ASSOC);
-            return $users;
-        } else {
-            echo "<script> alert('Error fetching users'); </script>";
-            return [];
-        }
+        return $users;
     }
 
-    function getUserById($ID) {
+  
+
+
+    function getUserByEmailAndPassword($email, $password)
+    {
         $conn = $this->connection;
-        $sql = "SELECT * FROM user WHERE ID='$ID'";
 
-        $result = $conn->query($sql);
+        $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
 
-        if ($result) {
-            $user = $result->fetch_assoc();
-            return $user;
-        } else {
-            echo "<script> alert('Error fetching user by ID'); </script>";
-            return null;
-        }
+        $statement = $conn->query($sql);
+
+        $user = $statement->fetch();
+
+        return $user;
     }
 
-    function updateUser($ID, $email, $password) {
+    function updateUser($email, $password)
+    {
         $conn = $this->connection;
-        $sql = "UPDATE user SET email = ?, password = ? WHERE ID = ?";
+
+        $sql = "UPDATE user SET  email=?, password=?";
 
         $statement = $conn->prepare($sql);
-        $statement->bind_param('ssi', $email, $password, $ID);
-        $statement->execute();
 
-        echo "<script> alert('Update was successful');</script>";
+        $statement->execute([$email,$password]);
+
+        echo "<script>alert('update was successful'); </script>";
     }
 
-    function deleteUser($ID) {
+    function deleteUser($id)
+    {
         $conn = $this->connection;
-        $sql = "DELETE FROM user WHERE ID=?";
+
+        $sql = "DELETE FROM user WHERE email=?";
 
         $statement = $conn->prepare($sql);
-        $statement->bind_param('i', $ID);
-        $statement->execute();
 
-        echo "<script>alert('Delete was successful');</script>";
+        $statement->execute([$id]);
+
+        echo "<script>alert('delete was successful'); </script>";
     }
 }
 ?>

@@ -1,45 +1,34 @@
 <?php
-class DatabaseConnection {
+
+
+class DatabaseConnection
+{
     private $server = "localhost";
     private $username = "root";
     private $password = "";
     private $database = "dizajn_web";
-    private $conn;
 
-    function startConnection() {
+    function startConnection()
+    {
         try {
-            $this->conn = new mysqli($this->server, $this->username, $this->password, $this->database);
-            
+            $conn = new PDO("mysql:host=$this->server;dbname=$this->database", $this->username, $this->password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "Connected succsesfuly";
+            return $conn;
         
-            if ($this->conn->connect_error) {
-                die("Connection failed: " . $this->conn->connect_error);
-            }
-    
-            return $this->conn;
-        } catch (Exception $e) {
-            echo "Database Connection Failed: " . $e->getMessage();
+         
+        } catch (PDOException $e) {
+            echo "Database Conenction Failed" . $e->getMessage();
             return null;
         }
+        
     }
-    
-    
 }
-?>
+/*
 
+PDO::ATTR_ERRMODE is an attribute that controls how PDO reports errors.
+PDO::ERRMODE_EXCEPTION is a constant representing a mode for error reporting.
+When this mode is set, PDO will throw exceptions when errors occur during database operations
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 ?>

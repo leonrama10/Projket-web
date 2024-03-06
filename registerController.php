@@ -1,40 +1,26 @@
 <?php
 include_once './userRepository.php';
-include_once './user.php';
+include_once './User.php';
 
-if (isset($_POST['submit-2'])) {
-    if (empty($_POST['new_username']) || empty($_POST['new_password'])) {
+if (isset($_POST['submit_Register'])) {
+    echo "FormSubmited";
+    if (empty($_POST['register_email']) || empty($_POST['register_password'])) {
         echo "Fill all fields!";
     } else {
-        $newUsername = $_POST['new_username'];
-        $newPassword = $_POST['new_password'];
+        $email = $_POST['register_email'];
+        $password = $_POST['register_password'];
 
-        $user = new User($newUsername, $newPassword);
+        $user = new User($email, $password);
         $userRepository = new UserRepository();
 
         $userRepository->insertUser($user);
+        echo "U insertua me sukses";
+        header('Location: About-us.php');
+      
+        exit();
     }
 }
 ?>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

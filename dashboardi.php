@@ -83,7 +83,7 @@
                 <div id="menuItemTable" class="table-container"></div>
             </div>
         </div>
-    </div>
+    </div>  
 
     <div class="reservation-section">
         <h2>Reservations</
