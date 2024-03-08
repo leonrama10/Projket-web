@@ -1,175 +1,108 @@
-*{
+* {
     margin: 0;
-    padding:0;
+    padding: 0;
     font-family: sans-serif;
 }
-header{
-    position: sticky;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 100;
-    background-color: black;
-    width: 100%;
-    height: 180px;
-}
-
-.site-logo {
-    width: 100%;
-    height: 45px;
-    line-height: 45px;
-    font-size: 24px;
-}
-.site-logo .s-l-h1-1{
-    padding-top: 40px;
-    /* font-size: 30px; */
-    font-family: 'Courier New', Courier, monospace;
+.login {
     text-align: center;
-    color: gold;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif; /* Add font-family */
+    font-size: 24px; /* Add font size */
+    padding: 20px 0; /* Adjust padding for better alignment */
+    color: #333; /* Add text color */
+    text-transform: uppercase; /* Convert text to uppercase */
 }
 
-.site-nav{
-    font-family: "Fed Pig Sans";
-    font-weight: bold;
-    font-size: .9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-    line-height: 1.5;
-}
-
-.site-nav_menu li{
-    display: inline-block;
-    padding-top: 80px;
-    text-decoration: none;
-    margin-right: 15px;
-}
-
-.site-nav .site-nav_menu a{
-    display: inline;
-    text-decoration: none;
-    color: gold;
-    transition: 0.4s;
-    padding: 4px;
-}
-.site-nav .site-nav_menu a:hover{
-    color: black;
-    background-color: gold;
-}
-
-.site-nav .site-nav_menu .border-a-1{
-    border: 2px solid gold;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 6px;
-    padding-right: 6px;
-}
-
-
-.hero{
-    height: 100%;
-    width: 100%;
-    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(images/banner-rezervime.jpg) ;
-    background-position: center;
-    background-size:cover ;
-    position: absolute;
-}
-
-.form-box{
-    width: 380px;
-    height: 480px;
-    position: relative;
-    margin: 6% auto;
-    background: #fff;
-    padding: 5px;
-    overflow: hidden;
-}
-
-.button-box{
-    width: 220px;
-    margin: 35px auto;
-    position: relative;
-    box-shadow: 0 0 20px 9px #ff61241f;
-    border-radius: 30px;
-    /* background-color: #ff105f; */
-}
-
-.toggle-btn{
-    padding: 10px 30px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-}
-#btn{
-    top: 0;
-    left: 0;
-    position:absolute;
-    width: 110px;
-    height: 100%;
-    background: linear-gradient(to right,#ff105f,#ffad06);
-    border-radius: 30px;
-    transition: 0.5s; ;
-}
-
-.social-icons{
-    margin: 30px auto;
-    text-align: center;
-}
 .social-icons img{
-    width: 30px;
+    width: 50px;
     margin: 0 12px;
      box-shadow: 0 0 20px 0 #7f7f7f3d;
      cursor: pointer;
      border-radius: 50%;
 }
-.input-group{
-    top: 180px;
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Added to center horizontally */
+    padding: 50px 50px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+.hero {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/banner-rezervime.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.form-box {
+    width: 380px;
+    height: 380px;
+    position: relative;
+    margin: 6% auto;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 9px #ff61241f;
+}
+
+.input-group {
+    top: 50%;
     position: absolute;
     width: 280px;
+    transform: translateY(-50%);
     transition: .5s;
+    text-align: center;
 }
-.input-field{
+
+.input-field {
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
     border-left: 0;
-    border-top:0;
+    border-top: 0;
     border-right: 0;
     border-bottom: 1px solid #999;
     outline: none;
     background: transparent;
 }
-.submit-btn{
+
+.submit-btn {
     width: 85%;
     padding: 10px 30px;
     cursor: pointer;
     display: block;
     margin: auto;
-    background: linear-gradient(to right,#ff105f,#ffad06);
+    background: linear-gradient(to right, #ff105f, #ffad06);
     border: 0;
     outline: none;
     border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.4s;
 }
-.checkbox{
-    margin: 30px 10px 30px 0;
 
-
+.submit-btn:hover {
+    background-color: #ffad06;
 }
-span{
+
+.checkbox {
+    margin: 10px auto;
+}
+
+span {
     color: #777;
     font-size: 12px;
-    bottom:68px;
+    bottom: 50px;
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
-#logIn{
-    left: 50px;
-}
-
-#Register{
-    left: 450px;
-}
-
-
-

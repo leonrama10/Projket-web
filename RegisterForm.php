@@ -1,76 +1,100 @@
+<?php
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   
+    $database = new DatabaseConnection();
+    $conn = $database->startConnection();
+
+    if ($conn) {
+        $email = filter_var($_POST['Register_email'], FILTER_SANITIZE_EMAIL);
+        $password = $_POST['Register_password']; 
+
+  
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error_message = "Invalid email format";
+        } elseif (strlen($password) < 3) {
+            $error_message = "Password must be at least 8 characters";
+        } else {
+           
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    
+            $stmt = $conn->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
+            $stmt->bindParam(1, $email);
+            $stmt->bindParam(2, $password);
+            if ($stmt->execute()) {
+                $success_message = "Registered successfully!";
+                header("Location: menu.php");
+                
+             
+            } else {
+                $error_message = "Registration failed";
+            }
+        }
+    } else {
+        $error_message = "Failed to connect to the database";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E commerce |Register Form</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link rel="stylesheet" href="register.css">
 </head>
-
 <body>
-
-  <?php include("./partials/header.php") ?>
-
-  <!-- register start -->
-  <div class="body">
-    <div class="container-box ">
-      <header>Sign up</header>
-
-      <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-        <input type="text" name="name" placeholder="name..."> <br><br>
-        <input type="text" name="surname" placeholder="surname..."> <br><br>
-        <input type="text" name="email" placeholder="email..."> <br><br>
-        <input type="text" name="username" placeholder="username..."><br><br>
-        <input type="password" name="password" placeholder="password..."><br><br>
-
-        <input type="submit" name="registerBtn" value="register"><br><br></>
-        <a href="Login.php">Login</a>
-      </form>
-
-      <?php include_once './controller/registerController.php'; ?>
-
+<div class="register-container">
+        <?php if (!empty($success_message)): ?>
+            <div class="success-message"><?php echo $success_message; ?></div>
+        <?php endif; ?>
+        <?php if (!empty($error_message)): ?>
+            <div class="error-message"><?php echo $error_message; ?></div>
+        <?php endif; ?>
+        <h2>Register</h2>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="return validateRegister()">
+            <input type="text" id="Register_email" name="Register_email" placeholder="Email" required>
+            <input type="password" id="Register_password" name="Register_password" placeholder="Password" required>
+            <input type="submit" value="Register">
+        </form>
     </div>
-  </div>
+    <script>
+    function validateRegister() {
+        var emailInput = document.getElementById("Register_email").value;
+        var passwordInput = document.getElementById("Register_password").value;
 
-  <footer class="footer">
-    <h1>SneakPeak</h1>
-    <div class="boxHolder">
-      <div class="first-box">
-        <h4>Contact Us</h4>
-        <p><strong>Address:</strong> <span>7 Prospect Hill</span></p>
-        <p><strong>Phone:</strong> <span> +44 070 6842 8235</span></p>
-        <p><strong>ZIP code:</strong> <span> PL9 9ST</span></p>
-        <div class="icon">
-          <ul>
-            <li><i class="fa-brands fa-facebook"></i></li>
-            <li><i class="fa-brands fa-instagram"></i></li>
-            <li><i class="fa-brands fa-linkedin"></i></li>
-          </ul>
-        </div>
-      </div>
+        if (emailInput.indexOf('@') === -1) {
+            alert("Email address must contain at least one '@' character.");
+            return false;
+        }
 
-      <div class="second-box">
-        <h4>About</h4>
-        <p>About Us</p>
-        <p>Delivery Information</p>
-        <p>Privacy Policy</p>
-      </div>
+        if (passwordInput.trim() === "") {
+            alert("Password field cannot be empty.");
+            return false;
+        }
 
-      <div class="third-box">
-        <h4>My Account</h4>
-        <p>Sign In</p>
-        <p>View Cart</p>
-        <p>My Website</p>
-      </div>
-    </div>
-  </footer>
+        if (!isValidPassword(passwordInput)) {
+            alert("Password must contain at least one uppercase letter, one number, and one special character.");
+            return false;
+        }
 
-  <script src="index.js"></script>
+        return true;
+    }
+    function isValidPassword(password) {
+        var uppercaseRegex = /[A-Z]/;
+        var numberRegex = /\d/;
+        var specialCharacterRegex = /[!@#$%^&*(),.?":{}|<>]/;
+
+        return uppercaseRegex.test(password) &&
+            numberRegex.test(password) &&
+            specialCharacterRegex.test(password) &&
+            password.length >= 8;
+    }
+    </scipt>
+
 </body>
-
 </html>
