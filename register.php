@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $newUsername = $_POST['new_username'];
-    $newPassword = $_POST['new_password'];
+    $newUsername = $_POST['username'];
+    $newPassword = $_POST['password'];
 
     $stmt = $conn->prepare("INSERT INTO user (username, password, role) VALUES (?, ?, 'user')");
     $stmt->bind_param("ss", $newUsername, $newPassword);

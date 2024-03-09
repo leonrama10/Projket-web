@@ -38,7 +38,7 @@
                 
                 
                 <form id="logIn" class="input-group" method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>" onsubmit=" return validateLogin()">
-                <p class="login">LOGIN</p>
+                <p class="login">SEKS</p>
                 <input type="text" name="login_email" class="input-field" placeholder="User Id" required>
                 <input type="password" name="login_password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>Remember Password</span>
