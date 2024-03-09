@@ -1,4 +1,36 @@
-    <!DOCTYPE html>
+<?php
+
+
+ini_set('session.gc_maxlifetime', 3600);
+session_start();
+
+include 'databaseConnection.php';
+$databaseConnection = new DatabaseConnection();
+$pdo = $databaseConnection->startConnection();
+$message = '';
+
+if (isset($_POST['submit_Login'])) { 
+    $email = $_POST['login_email'];
+    $password = $_POST['login_password'];
+    $message = '';
+
+    $query = $pdo->prepare('SELECT * FROM user WHERE email = :email');
+    $query->bindParam(':email', $email);
+    $query->execute();
+
+    $user = $query->fetch();
+
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';
+        header("Location: index.php");
+        exit();
+    } else {
+        $message = 'Invalid email or password';
+    }
+}
+?>
+
+   <!DOCTYPE html>
 
 
     <head>
@@ -27,9 +59,6 @@
         </header>
         <div class="hero">
             <div class="form-box">
-                <!-- <div class="button-box">
-                    <button type="button" class="toggle-btn" onclick="logIn()">Log In</button>
-                </div> -->
                 <div class="social-icons">
                     <img src="images/fb.png">
                     <img src="images/gp.png">
@@ -37,8 +66,11 @@
                 </div>
                 
                 
-                <form id="logIn" class="input-group" method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>" onsubmit=" return validateLogin()">
-                <p class="login">LOGIN</p>
+                <form id="logIn" class="input-group" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateLogin()">
+                <p class="login">LOGINs</p>
+                <?php if ($message != ''): ?>
+                    <p class="error-message"><?php echo $message; ?></p>
+                <?php endif; ?>
                 <input type="text" name="login_email" class="input-field" placeholder="User Id" required>
                 <input type="password" name="login_password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>Remember Password</span>

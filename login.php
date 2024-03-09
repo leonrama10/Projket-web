@@ -1,30 +1,32 @@
-<?php
+<!-- <?php
 
-ini_set('session.gc_maxlifetime', 3600);
-session_start();
+// ini_set('session.gc_maxlifetime', 3600);
+// include_once 'userRepository.php';
+// include_once 'user.php';
+// session_start();
 
-include 'databaseConnection.php';
-$databaseConnection = new DatabaseConnection();
-$pdo = $databaseConnection->startConnection();
+// include 'databaseConnection.php';
+// $databaseConnection = new DatabaseConnection();
+// $pdo = $databaseConnection->startConnection();
 
-if (isset($_POST['submit_Login'])) {
-    $email = $_POST['login_email'];
-    $password = $_POST['login_password'];
-    $message = '';
+// if (isset($_POST['submit_Login'])) {
+//     $email = $_POST['login_email'];
+//     $password = $_POST['login_password'];
+//     $message = '';
 
-    $query = $pdo->prepare('SELECT * FROM user WHERE email = :email');
-    $query->bindParam(':email', $email);
-    $query->execute();
+//     $query = $pdo->prepare('SELECT * FROM user WHERE email = :email');
+//     $query->bindParam(':email', $email);
+//     $query->execute();
 
-    $user = $query->fetch();
+//     $user = $query->fetch();
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';
-        header("Location: About-us.php");
+//     if ($user && password_verify($password, $user['password'])) {
+//         $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';
+//         header("Location: About-us.php");
         
-        exit();
-    } else {
-        $message = 'Invalid email or password';
-    }
-}
-?>
+//         exit();
+//     } else {
+//         $message = 'Invalid email or password';
+//     }
+// }
+?> -->

@@ -1,4 +1,5 @@
 <?php
+require_once 'DatabaseConnection.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -55,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (!empty($error_message)): ?>
             <div class="error-message"><?php echo $error_message; ?></div>
         <?php endif; ?>
-        <h2>Register</h2>
+        <h2>Register DORIss</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="return validateRegister()">
             <input type="text" id="Register_email" name="Register_email" placeholder="Email" required>
             <input type="password" id="Register_password" name="Register_password" placeholder="Password" required>
@@ -94,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             specialCharacterRegex.test(password) &&
             password.length >= 8;
     }
-    </scipt>
+    </script>
 
 </body>
 </html>
