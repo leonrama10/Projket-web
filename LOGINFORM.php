@@ -1,31 +1,36 @@
 <?php
+require_once 'DatabaseConnection.php';
 
+session_start(); 
 
-ini_set('session.gc_maxlifetime', 3600);
-session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $database = new DatabaseConnection();
+    $conn = $database->startConnection();
 
-include 'databaseConnection.php';
-$databaseConnection = new DatabaseConnection();
-$pdo = $databaseConnection->startConnection();
-$message = '';
+    $error_message = ''; 
 
-if (isset($_POST['submit_Login'])) { 
-    $email = $_POST['login_email'];
-    $password = $_POST['login_password'];
-    $message = '';
+    if ($conn) {
+        $email = filter_var($_POST['login_email'], FILTER_SANITIZE_EMAIL);
+        $password = $_POST['login_password'];
 
-    $query = $pdo->prepare('SELECT * FROM user WHERE email = :email');
-    $query->bindParam(':email', $email);
-    $query->execute();
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error_message = "Invalid email format";
+        } else {
+            $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
+            $stmt->bindParam(1, $email);
+            $stmt->execute();
+            $user = $stmt->fetch();
 
-    $user = $query->fetch();
-
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';
-        header("Location: index.php");
-        exit();
+            if ($user && $password ==  $user['password']) {
+                // $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';
+                header("Location: index.php");
+                exit();
+            } else {
+                $error_message = "Invalid email or passwordssss";
+            }
+        }
     } else {
-        $message = 'Invalid email or password';
+        $error_message = "Failed to connect to the database";
     }
 }
 ?>
@@ -67,10 +72,13 @@ if (isset($_POST['submit_Login'])) {
                 
                 
                 <form id="logIn" class="input-group" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateLogin()">
-                <p class="login">LOGINs</p>
-                <?php if ($message != ''): ?>
-                    <p class="error-message"><?php echo $message; ?></p>
+                <?php if (!empty($success_message)): ?>
+            <div class="success-message"><?php echo $success_message; ?></div>
                 <?php endif; ?>
+                <?php if (!empty($error_message)): ?>
+                    <div class="error-message"><?php echo $error_message; ?></div>
+                <?php endif; ?>
+                <h2>Login</h2>
                 <input type="text" name="login_email" class="input-field" placeholder="User Id" required>
                 <input type="password" name="login_password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>Remember Password</span>
@@ -87,11 +95,11 @@ if (isset($_POST['submit_Login'])) {
             var y = document.getElementById("Register");
             var z = document.getElementById("btn");
 
-            function Register(){
-                x.style.left ="-400px";
-                y.style.left ="50px";
-                z.style.left ="110px"
-            }
+            // function Register(){
+            //     x.style.left ="-400px";
+            //     y.style.left ="50px";
+            //     z.style.left ="110px"
+            // }
             function logIn(){
                 x.style.left ="50px";
                 y.style.left ="450px";
@@ -99,9 +107,8 @@ if (isset($_POST['submit_Login'])) {
             }
 
             function validateLogin() {
-        var emailInput = document.getElementById("login_email").value;
-        var passwordInput = document.getElementById("login_password").value;
-
+                var emailInput = document.forms["logIn"]["login_email"].value;
+        var passwordInput = document.forms["logIn"]["login_password"].value;
         if (emailInput.trim() === "" || loginPassword.trim() === "") {
             alert("Please enter your email.");
             return false;
