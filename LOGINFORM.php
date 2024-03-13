@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: index.php");
                 exit();
             } else {
-                $error_message = "Invalid email or passwordssss";
+                $error_message = "Invalid email or password";
             }
         }
     } else {
@@ -45,14 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </head>
     <body>
         <div class="hero">
-            <div class="form-box">
-                <div class="social-icons">
-                    <img src="images/fb.png">
-                    <img src="images/gp.png">
-                    <img src="images/tw.png">
-                </div>
-                
-                
+            <div class="form-box"> 
                 <form id="logIn" class="input-group" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateLogin()">
                 <?php if (!empty($success_message)): ?>
             <div class="success-message"><?php echo $success_message; ?></div>
@@ -61,9 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="error-message"><?php echo $error_message; ?></div>
                 <?php endif; ?>
                 <h2>Login</h2>
-                <input type="text" name="login_email" class="input-field" placeholder="User Id" required>
+                <input type="text" name="login_email" class="input-field" placeholder="User Id" required>  <br><br>
                 <input type="password" name="login_password" class="input-field" placeholder="Enter Password" required>
-                <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                <br><br>
                 <input name="submit_Login" type = "submit" class="submit-btn" value="Log In">
                 </form>
             
@@ -77,11 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var y = document.getElementById("Register");
             var z = document.getElementById("btn");
 
-            // function Register(){
-            //     x.style.left ="-400px";
-            //     y.style.left ="50px";
-            //     z.style.left ="110px"
-            // }
             function logIn(){
                 x.style.left ="50px";
                 y.style.left ="450px";

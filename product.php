@@ -15,6 +15,7 @@ function getPrice (){
     return $this->price;
 }
 
+
 }
 
 

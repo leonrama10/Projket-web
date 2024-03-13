@@ -1,108 +1,84 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-}
-.login {
-    text-align: center;
-    margin-bottom: 20px;
-    font-family: Arial, sans-serif; /* Add font-family */
-    font-size: 24px; /* Add font size */
-    padding: 20px 0; /* Adjust padding for better alignment */
-    color: #333; /* Add text color */
-    text-transform: uppercase; /* Convert text to uppercase */
+    font-family: Arial, sans-serif;
 }
 
-.social-icons img{
-    width: 50px;
-    margin: 0 12px;
-     box-shadow: 0 0 20px 0 #7f7f7f3d;
-     cursor: pointer;
-     border-radius: 50%;
-}
-.toggle-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Added to center horizontally */
-    padding: 50px 50px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-}
-.hero {
+body, html {
     height: 100%;
-    width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/banner-rezervime.jpg);
-    background-position: center;
-    background-size: cover;
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; 
+}
+
+.hero {
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    border-radius: 8px; 
 }
 
 .form-box {
-    width: 380px;
-    height: 380px;
-    position: relative;
-    margin: 6% auto;
-    background: #fff;
-    padding: 5px;
-    overflow: hidden;
+    background: white;
     border-radius: 10px;
-    box-shadow: 0 0 20px 9px #ff61241f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    width: 300px; 
 }
 
+
+
 .input-group {
-    top: 50%;
-    position: absolute;
-    width: 280px;
-    transform: translateY(-50%);
-    transition: .5s;
-    text-align: center;
+    margin: 20px 0; 
 }
 
 .input-field {
-    width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid #999;
-    outline: none;
-    background: transparent;
+    width: calc(70% - 40px); 
+    padding: 50px 50px;
+    display: flex;
+   align-items: center;
+
+    margin-bottom: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8; 
 }
 
 .submit-btn {
-    width: 85%;
-    padding: 10px 30px;
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
-    display: block;
-    margin: auto;
-    background: linear-gradient(to right, #ff105f, #ffad06);
-    border: 0;
-    outline: none;
-    border-radius: 30px;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: background-color 0.4s;
+    transition: background-color 0.3s;
 }
 
 .submit-btn:hover {
-    background-color: #ffad06;
+    background-color: #0056b3;
 }
 
 .checkbox {
-    margin: 10px auto;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 15px;
 }
 
-span {
-    color: #777;
-    font-size: 12px;
-    bottom: 50px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.checkbox span {
+    margin-left: 5px;
 }
+
+.error-message, .success-message {
+    margin-bottom: 15px;
+    color: red; 
+    font-size: 14px;
+}
+
+
+.input-field::placeholder {
+    color: #666;
+}
+
