@@ -41,10 +41,6 @@ class UserRepository
 
         return $users;
     }
-
-  
-
-
     function getUserByEmailAndPassword($email, $password)
     {
         $conn = $this->connection;
@@ -83,5 +79,20 @@ class UserRepository
 
         echo "<script>alert('delete was successful'); </script>";
     }
+    function getUserByEmail($email)
+    {
+        $conn = $this->connection;
+
+        $sql = "SELECT * FROM user WHERE email = ?";
+
+        $statement = $conn->prepare($sql);
+        $statement->execute([$email]);
+
+        $user = $statement->fetch();
+
+        return $user;
+    }
+
+  
 }
 ?>

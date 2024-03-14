@@ -1,44 +1,53 @@
+<?php session_start();
+
+
+include_once 'productRepository.php';
+include_once 'userRepository.php';
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>menu</title>
-
-    <link rel="stylesheet" href="menu.css">
-
-
-
+    <title>Document</title>
+    <link rel="stylesheet" href="Productshow.css">
 </head>
+
+
 <body>
 
-    <header>
-        <div class="container">
-            <div class="site-logo">
-                
-                <h1 class="s-l-h1-1">L&D MEAT</h1>
-            </div>
-            <nav class="site-nav">
-                
-                <ul class="site-nav_menu">
-                    
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="menu.php">MENUS</a></li>
-                    <li><a href="LOGINFORM.php">LOGIN</a></li>
-                    <li><a href="About-us.php">ABOUT US</a></li>
-                    <li><a href="#">LOCATIONS</a></li>
-                    <li><a href="RegisterForm.php">REGISTER</a></li>
-                    <li><a class="border-a-1" href="#">RESERVING</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <?php include("header.php") ?>
+
+    <!-- <div id="product1">
+        <?php if (isset($_SESSION['is_authenticated'])): ?>
+
+            <a href="add-product.php">
+                Add product
+            </a>
+
+        <!-- <?php endif; ?> -->
+  
+  
+      <div class="pro-container">
     <?php
-                
-                include_once 'addProduct.php';
-                ?>
-     <div class="footer">
+    $productRepository = new ProductRepository();
+    $userRepository = new UserRepository();
+    $products = $productRepository->getProducts();
+    foreach ($products as $product) {
+        echo '
+            <div class="product-item">
+                <span class="product-name">' . htmlspecialchars($product["name"]) . '</span>
+                <span class="product-price">Price: $' . htmlspecialchars($product['price']) . '</span>
+            </div>
+        ';
+    }
+    ?>
+</div>
+<div class="footer">
       <div class="footer-links">
           <a href="#"><i class="fab fa-instagram"></i></a>
         <a class="fd-1" href="https://www.ubt-uni.net/sq/ballina/">Home</a>
@@ -51,5 +60,7 @@
       </div>
   </div>
     
+    
 </body>
+
 </html>

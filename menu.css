@@ -305,7 +305,7 @@ header{
     object-fit: cover;
     object-position: center center;
     position: relative;
-    bottom: 1260px;
+    /* bottom: 1260px; */
 }
 
 .gr-h2-1{

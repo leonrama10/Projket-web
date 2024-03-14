@@ -1,17 +1,12 @@
-/*per telefon*/
-/* @media only screen and (min-width: 600px){
-
-} */
-/*per llaptop*/
-/* @media only screen and (min-width: 992px){
-
-} */
-*{
+/* General Resets */
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-header{
+
+/* Header */
+header {
     position: sticky;
     top: 0;
     right: 0;
@@ -28,14 +23,14 @@ header{
     line-height: 45px;
     font-size: 24px;
 }
-.site-logo .s-l-h1-1{
+
+.site-logo .s-l-h1-1 {
     padding-top: 40px;
-    /* font-size: 30px; */
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
 
-.site-nav{
+.site-nav {
     font-family: "Fed Pig Sans";
     font-weight: bold;
     font-size: .9rem;
@@ -45,26 +40,27 @@ header{
     line-height: 1.5;
 }
 
-.site-nav_menu li{
+.site-nav_menu li {
     display: inline-block;
     padding-top: 80px;
     text-decoration: none;
     margin-right: 15px;
 }
 
-.site-nav .site-nav_menu a{
+.site-nav .site-nav_menu a {
     display: inline;
     text-decoration: none;
     color: black;
     transition: 0.4s;
     padding: 4px;
 }
-.site-nav .site-nav_menu a:hover{
+
+.site-nav .site-nav_menu a:hover {
     color: gold;
     background-color: black;
 }
 
-.site-nav .site-nav_menu .border-a-1{
+.site-nav .site-nav_menu .border-a-1 {
     border: 2px solid black;
     padding-top: 6px;
     padding-bottom: 6px;
@@ -72,48 +68,40 @@ header{
     padding-right: 6px;
 }
 
-/*banner foto*/
-
-.banner_foto{
+/* Banner Photo */
+.banner_foto {
     position: relative;
     width: 100%;
     height: 500px;
     background-size: cover;
     background-position: center;
 }
+
 .background-banner {
-    /* color: white;
-    font-weight: 800;
-    font-size: 50px;
-    text-transform: uppercase;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff; */
     background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 500px;
 }
 
-.background-banner .background-text .bt-h2-1{
+.background-banner .background-text .bt-h2-1 {
     color: white;
     font-size: 70px;
     text-transform: uppercase;
     text-align: center;
     padding-top: 180px;
 }
-.background-banner .background-text .bt-p-1{
+
+.background-banner .background-text .bt-p-1 {
     color: white;
     font-size: 20px;
     text-align: center;
     padding-top: 20px;
 }
-.background-banner .background-text .bt-a-1{
+
+.background-banner .background-text .bt-a-1 {
     border: 2px solid gold;
     color: gold;
-    font-weight: 16px;
+    font-size: 16px;
     text-transform: uppercase;
     padding: 6px;
     text-decoration: none;
@@ -122,14 +110,14 @@ header{
     left: 45%;
     transition: 0.4s;
 }
-.background-banner .background-text .bt-a-1:hover{
+
+.background-banner .background-text .bt-a-1:hover {
     color: black;
     background-color: gold;
 }
 
-/*grid*/
 
-.all-grid{
+.all-grid {
     padding: 40px 120px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -137,13 +125,17 @@ header{
     align-items: center;
     background-color: gold;
 }
-.all-grid .grid-l .foto-left .fl-img-1{
+
+.all-grid .grid-l .foto-left .fl-img-1,
+.all-grid .grid-r .foto-right .fr-img-1 {
     width: 100%;
     height: 350px;
     object-fit: cover;
     object-position: center center;
 }
-.gl-h2-1{
+
+.gl-h2-1,
+.gr-h2-1 {
     font-family: "Fed Pig Sans";
     color: #000;
     font-size: 30px;
@@ -151,14 +143,26 @@ header{
     text-align: center;
     padding-top: 16px;
 }
-.gl-p-1{
+
+.gl-p-1,
+.gr-p-1,
+.gp-2-p-1,
+.gp-2-p-2,
+.lg-p-1 {
     text-align: center;
     margin-block-start: 16px;
     margin-block-end: 16px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
 }
-.gl-a-1{
+
+.gl-a-1,
+.gr-a-1,
+.gp-2-a-1,
+.lg-a-1 {
     border: 2px solid black;
     font-family: "Fed Pig Sans";
     color: #000;
@@ -172,69 +176,34 @@ header{
     left: 190px;
     transition: 0.4s;
 }
-.gl-a-1:hover{
+
+.gl-a-1:hover,
+.gr-a-1:hover,
+.gp-2-a-1:hover,
+.lg-a-1:hover {
     color: gold;
     background-color: black;
 }
 
 
-.all-grid .grid-r .foto-right .fr-img-1{
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    object-position: center center;
-}
-.gr-h2-1{
-    font-family: "Fed Pig Sans";
-    color: #000;
-    font-size: 30px;
-    text-transform: uppercase;
-    text-align: center;
-    padding-top: 16px;
-}
-.gr-p-1{
-    text-align: center;
-    margin-block-start: 16px;
-    margin-block-end: 16px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-.gr-a-1{
-    border: 2px solid black;
-    font-family: "Fed Pig Sans";
-    color: #000;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 8px;
-    text-decoration: none;
-    text-transform: uppercase;
-    position: relative;
-    top: 20px;
-    left: 190px;
-    transition: 0.4s;
-}
-.gr-a-1:hover{
-    color: gold;
-    background-color: black;
-}
-
-/*grid pozita 2*/
-
-.grid-pozita-2{
+.grid-pozita-2 {
     height: 100%;
     align-items: center;
     display: flex;
     padding-top: 5rem;
     background-color: gold;
 }
-.grid-pozita-2 > .gp-2-text{
+
+.grid-pozita-2 > .gp-2-text {
     width: 40%;
     gap: 40px;
 }
-.gp-2-text{
+
+.gp-2-text {
     padding-bottom: 100px;
 }
-.grid-pozita-2 > .gp-2-text > .gp-2-h2-1{
+
+.grid-pozita-2 > .gp-2-text > .gp-2-h2-1 {
     width: 100%;
     gap: 40px;
     font-family: "Fed Pig Sans";
@@ -244,82 +213,36 @@ header{
     text-transform: uppercase;
     text-align: center;
 }
-.gp-2-p-1{
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.5;
-    text-align: center;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-.gp-2-p-2{
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.5;
-    text-align: center;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-.gp-2-a-1{
-    border: 2px solid black;
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 6px;
-    color: black;
-    position: relative;
-    top: 20px;
-    left: 195px;
-    transition: 0.4s;
-}
-.gp-2-a-1:hover{
-    color: gold;
-    background-color: black;
-}
 
-.grid-pozita-2 .gp-2-foto{
+.grid-pozita-2 .gp-2-foto,
+.last-grid .lg-foto {
     width: 60%;
     height: 600px;
 }
-.grid-pozita-2 .gp-2-foto .gp-2-img{
+
+.grid-pozita-2 .gp-2-foto .gp-2-img,
+.last-grid .lg-foto .lg-img-1 {
     width: 100%;
-    height: 600px;
+    height: 600px; 
 }
 
-/*last grid*/
 
-.last-grid{
+.last-grid {
     height: 100%;
     align-items: center;
     display: flex;
-    /* padding-top: 5rem; */
     background-color: gold;
 }
-.last-grid > .lg-foto{
-    width: 60%;
-    gap: 40%;
-}
-.last-grid .lg-foto{
-    width: 60%;
-    height: 500px;
-}
-.last-grid .lg-foto .lg-img-1{
-    width: 100%;
-    height: 500px;
-}
 
-.last-grid .lg-text{
+.last-grid .lg-text {
     width: 40%;
 }
-.lg-text{
+
+.lg-text {
     padding-bottom: 80px;
 }
-.last-grid .lg-text .lg-h2-1{
+
+.last-grid .lg-text .lg-h2-1 {
     width: 100%;
     gap: 40px;
     font-family: "Fed Pig Sans";
@@ -329,69 +252,31 @@ header{
     text-transform: uppercase;
     text-align: center;
 }
-.lg-p-1{
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.5;
-    text-align: center;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-.lg-a-1{
-    border: 2px solid black;
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 6px;
-    color: black;
-    position: relative;
-    top: 20px;
-    left: 195px;
-    transition: 0.4s;
-}
-.lg-a-1:hover{
-    color: gold;
-    background-color: black;
-}
-
-/*footer*/
 
 
-.footer{
+.footer {
     background-color: black;
-    height: 100px;
+    padding: 20px 0; 
     width: 100%;
-    /* display: flex; */
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding-inline: inherit;
+    text-align: center; 
 }
-.footer-links{
-    padding-top: 20px;
+
+.footer-links {
+    display: inline-flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px; 
+    padding-top: 10px;
 }
-.footer .footer-links .fd-1{
-    width: 100%;
-    height: 100px;
+
+.footer .footer-links .fd-1, .footer-links a {
     color: gold;
     text-decoration: none;
-    margin-right: 20px;
-    transition: 0.4s;
+    transition: color 0.4s;
+    margin: 0 10px; 
+    font-size: 18px; 
+    display: inline-block; 
 }
-.footer .footer-links .fd-1:hover{
-    color: white;
-}
-.footer-links a{
-    width: 100%;
-    height: 100px;
-    color: gold;
-    background-color: black;
-    text-decoration: none;
-    font-size: 18px;
-}
-.footer-links a:hover{
+.footer .footer-links .fd-1:hover, .footer-links a:hover {
     color: white;
 }
