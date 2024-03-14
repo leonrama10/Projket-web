@@ -65,6 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" name="login_password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"><span>Remember Password</span>
                 <input name="submit_Login" type = "submit" class="submit-btn" value="Log In">
+                <a href="menu.php"><input name="submit_Login" type = "submit" class="submit-btn" value="Log In"></a><!-- e kom shtu -->
+                <!-- Ketu kena me ba kur te behet login te dergohet tek menu -->
                 </form>
             
 

@@ -61,6 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="Register_email" name="Register_email" placeholder="Email" required>
             <input type="password" id="Register_password" name="Register_password" placeholder="Password" required>
             <input type="submit" value="Register">
+            <a href="LOGINFORM.php">Allready have an account</a> <!-- e kom shtu -->
+            <!-- ketu kena me shtu "Allready have an account" -->
+            <!-- Nese ka account e dergon tek login. Nese nuk ka behet regjister -->
         </form>
     </div>
     <script>
