@@ -25,10 +25,10 @@
                     
                     <li><a href="index.php">Home</a></li>
                     <li><a href="menu.php">MENUS</a></li>
-                    <li><a href="LOGINFORM.php">LOGIN</a></li>
+                    <!-- <li><a href="LOGINFORM.php"></a></li> -->
                     <li><a href="About-us.php">ABOUT US</a></li>
                     <li><a href="#">LOCATIONS</a></li>
-                    <li><a href="RegisterForm.php">REGISTER</a></li>
+                    <!-- <li><a href="RegisterForm.php">REGISTER</a></li> -->
                     <li><a class="border-a-1" href="#">RESERVING</a></li>
                 </ul>
             </nav>
