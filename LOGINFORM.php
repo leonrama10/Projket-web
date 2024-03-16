@@ -70,11 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var y = document.getElementById("Register");
             var z = document.getElementById("btn");
 
-            // function logIn(){
-            //     x.style.left ="50px";
-            //     y.style.left ="450px";
-            //     z.style.left ="0"
-            // }
+            function logIn(){
+                x.style.left ="50px";
+                y.style.left ="450px";
+                z.style.left ="0"
+            }
 
             function validateLogin() {
                 var emailInput = document.forms["logIn"]["login_email"].value;
