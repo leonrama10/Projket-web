@@ -27,7 +27,7 @@
                     <li><a href="menu.php">MENUS</a></li>
                     <li><a href="LOGINFORM.php">LOGIN</a></li>
                     <li><a href="About-us.php">ABOUT US</a></li>
-                    <li><a href="#">LOCATIONS</a></li>
+                    <li><a href="https://www.google.com/search?sca_esv=277ba526b581d5c7&tbm=lcl&sxsrf=ACQVn0-Ya7gtyHhiaK8KS2DgEUCETxrcrQ:1710621704950&q=ubt+locations+pristina&spell=1&sa=X&ved=2ahUKEwja5cW40vmEAxUEX_EDHWzSDU4QBSgAegQICBAC&biw=1745&bih=866&dpr=1.1">LOCATIONS</a></li>
                     <li><a href="RegisterForm.php">REGISTER</a></li>
                     <li><a class="border-a-1" href="#">RESERVING</a></li>
                 </ul>

@@ -17,7 +17,7 @@
                     <li><a href="menu.php">MENUS</a></li>
                     <li><a href="LOGINFORM.php">LOGIN</a></li>
                     <li><a href="About-us.php">ABOUT US</a></li>
-                    <li><a href="#">LOCATIONS</a></li>
+                    <li><a href="https://www.google.com/search?q=ubt+locations+prishtina&sca_esv=277ba526b581d5c7&biw=1745&bih=866&tbm=lcl&sxsrf=ACQVn0-ABPHW5pN4re1N--8tF31-VvmPTQ%3A1710621359494&ei=rwL2ZZjeHfWSxc8P77C84Ak&ved=0ahUKEwjY8eiT0fmEAxV1SfEDHW8YD5wQ4dUDCAk&uact=5&oq=ubt+locations+prishtina&gs_lp=Eg1nd3Mtd2l6LWxvY2FsIhd1YnQgbG9jYXRpb25zIHByaXNodGluYTIGEAAYFhgeMgsQABiABBiKBRiGAzILEAAYgAQYigUYhgNIpRBQ3gNYlw9wAHgAkAEAmAG8AaAB9wyqAQQwLjEwuAEDyAEA-AEBmAIKoAKLDcICBBAjGCfCAgUQABiABJgDAIgGAZIHBDAuMTCgB_UV&sclient=gws-wiz-local">LOCATIONS</a></li>
                     <li><a href="#">REGISTER</a></li>
                     <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
             </ul>
