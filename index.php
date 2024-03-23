@@ -10,8 +10,6 @@
 
 </head>
 <body>
-    
-<h1>leontest</h1>
 
     <header>
         <div class="container">
@@ -20,12 +18,13 @@
             </div>
             <nav class="site-nav">
                 <ul class="site-nav_menu">
+                    <!-- <li><a href="Administrator.php">Admin</a></li> -->
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="menu.php">MENUS</a></li>
-                    <!-- <li><a href="LOGINFORM.php">LOGIN</a></li> -->
+                    <li><a href="LOGINFORM.php">LOGIN</a></li>
                     <li><a href="About-us.php">ABOUT US</a></li>
                     <li><a href="#">LOCATIONS</a></li>
-                    <!-- <li><a href="RegisterForm.php">REGISTER</a></li> -->
+                    <li><a href="RegisterForm.php">REGISTER</a></li>
                     <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
                 </ul>
             </nav>

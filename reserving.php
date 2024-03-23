@@ -16,6 +16,7 @@
                 </div>
                 <nav class="site-nav">
                     <ul class="site-nav_menu">
+                        <!-- <li><a href="Administrator.php">Admin</a></li> -->
                         <li><a href="index.php">HOME</a></li>
                         <li><a href="menu.php">MENUS</a></li>
                         <li><a href="LOGINFORM.php">LOGIN</a></li>
