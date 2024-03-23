@@ -54,15 +54,15 @@ class UserRepository
         return $user;
     }
 
-    function updateUser($email, $password)
+    function updateUser($email, $password, $useremail)
     {
         $conn = $this->connection;
 
-        $sql = "UPDATE user SET  email=?, password=?";
+        $sql = "UPDATE user SET  email=?, password=? WHERE email=?";
 
         $statement = $conn->prepare($sql);
 
-        $statement->execute([$email,$password]);
+        $statement->execute([$email,$password,$useremail]);
 
         echo "<script>alert('update was successful'); </script>";
     }

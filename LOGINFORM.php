@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $stmt->fetch();
 
             if ($user && $password ==  $user['password']) {
-                // $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';
-                header("Location: index.php");
+                $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com', 'leonrama@gmail.com'])) ? 'admin' : 'user';  //per admin
+                header("Location: Administrator.php");  //index.php
                 exit();
             } else {
                 $error_message = "Invalid email or password";
