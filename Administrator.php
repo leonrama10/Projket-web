@@ -4,10 +4,14 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
     echo "<h3>Welcome to the Admin Dashboard</h3>";
     echo "<br><a href='LOGINFORM.php'>Back to Login</a>";
 } else {
-    // If not an admin, redirect to the homepage or login page
+   
     header('Location: index.php');
     exit();
 }
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +38,7 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
                 <li><a href="About-us.php">ABOUT US</a></li>
                 <li><a href="#">LOCATIONS</a></li>
                 <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
+                <li><a href="LogOut.php">LOGOUT</a></li> 
             </ul>
         </nav>
     </div>

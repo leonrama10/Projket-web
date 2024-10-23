@@ -1,11 +1,14 @@
 <?php
 session_start();
 
-// Check if the user is logged in
 if (!isset($_SESSION['user_role'])) {
-    header('Location: LOGINFORM.php');  // Redirect to login if not logged in
+    header('Location: LOGINFORM.php'); 
     exit();
 }
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 ?>
 
 <!DOCTYPE html>
