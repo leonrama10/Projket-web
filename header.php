@@ -20,6 +20,7 @@
                 <ul class="site-nav_menu">
                
                     <li><a href="menu.php">MENUS</a></li>
+                    <li><a href="LogOut.php">LOGOUT</a></li>  <!-- Add the logout link -->
                  
                 </ul>
             </nav>
