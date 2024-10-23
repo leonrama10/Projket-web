@@ -27,6 +27,9 @@ if (!isset($_SESSION['user_role'])) {
         <nav class="site-nav">
             <ul>
                 <!-- <li><a href="Administrator.php">Admin</a></li> -->
+                <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
+                    <li><a href="Administrator.php">ADMIN</a></li>
+                <?php endif; ?>
                 <li><a href="index.php">HOME</a></li>
                     <li><a href="menu.php">MENUS</a></li>
                     <!-- <li><a href="LOGINFORM.php">LOGIN</a></li> -->
@@ -34,6 +37,7 @@ if (!isset($_SESSION['user_role'])) {
                     <li><a href="#">LOCATIONS</a></li>
                     <!-- <li><a href="#">REGISTER</a></li> -->
                     <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
+                    <li><a href="LogOut.php">LOGOUT</a></li> 
             </ul>
         </nav>
     </header>
@@ -51,7 +55,7 @@ if (!isset($_SESSION['user_role'])) {
 
 <div class="about-us">
     <h2>About Us</h2>
-    <h2>TEST PER GITHUB</h2>
+
     <p>Welcome to Your Luxury Restaurant's "About Us" page, where our story unfolds in the harmony of culinary artistry and opulent ambiance. Established in 2010, Your Luxury Restaurant has become a symbol of sophistication in the dining landscape.
         Our mission is to provide more than just a meal; we aim to offer an extraordinary experience that transcends expectations. Rooted in a passion for culinary excellence, our chefs meticulously curate menus that showcase the finest ingredients, innovative techniques, and a dedication to creating memorable moments.  
         At Your Luxury Restaurant, we take pride in fostering an environment where each visit is not just a dining experience but a journey through flavors, textures, and culinary traditions. As we continue to evolve, we invite you to be a part of our narrative,

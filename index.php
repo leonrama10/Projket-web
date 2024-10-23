@@ -1,10 +1,9 @@
 <?php
 session_start();
 
-
+// Check if the user is logged in
 if (!isset($_SESSION['user_role'])) {
-   
-    header('Location: LOGINFORM.php');
+    header('Location: LOGINFORM.php');  // Redirect to login if not logged in
     exit();
 }
 ?>
@@ -27,6 +26,9 @@ if (!isset($_SESSION['user_role'])) {
             </div>
             <nav class="site-nav">
                 <ul class="site-nav_menu">
+                <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
+                    <li><a href="Administrator.php">ADMIN</a></li>
+                <?php endif; ?>
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="menu.php">MENUS</a></li>
                     <li><a href="About-us.php">ABOUT US</a></li>

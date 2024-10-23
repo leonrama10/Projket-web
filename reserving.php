@@ -16,6 +16,9 @@
                 </div>
                 <nav class="site-nav">
                     <ul class="site-nav_menu">
+                    <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
+                    <li><a href="Administrator.php">ADMIN</a></li>
+                <?php endif; ?>
                         <!-- <li><a href="Administrator.php">Admin</a></li> -->
                         <li><a href="index.php">HOME</a></li>
                         <li><a href="menu.php">MENUS</a></li>
@@ -24,6 +27,7 @@
                         <li><a href="#">LOCATIONS</a></li>
                         <!-- <li><a href="RegisterForm.php">REGISTER</a></li> -->
                         <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
+                        <li><a href="LogOut.php">LOGOUT</a></li> 
                     </ul>
                 </nav>
             </div>

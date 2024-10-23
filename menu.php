@@ -34,6 +34,9 @@ if (!isset($_SESSION['user_role'])) {
                 
                 <ul class="site-nav_menu">
                     <!-- <li><a href="Administrator.php">Admin</a></li> -->
+                    <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
+                    <li><a href="Administrator.php">ADMIN</a></li>
+                <?php endif; ?>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="menu.php">MENUS</a></li>
                     <!-- <li><a href="LOGINFORM.php">LOGIN</a></li> -->
