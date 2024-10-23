@@ -1,6 +1,15 @@
 <?php
   session_start();
 
+
+
+if (!isset($_SESSION['user_role'])) {
+
+    header('Location: LOGINFORM.php');
+    exit();
+}
+
+
 ?>
 
 <!DOCTYPE html>

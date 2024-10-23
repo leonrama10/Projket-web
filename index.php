@@ -1,13 +1,14 @@
 <?php
 session_start();
 
-// Check if the user is logged in
+
 if (!isset($_SESSION['user_role'])) {
-    // If not logged in, redirect to the login form
+   
     header('Location: LOGINFORM.php');
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,7 @@ if (!isset($_SESSION['user_role'])) {
                     <li><a href="About-us.php">ABOUT US</a></li>
                     <li><a href="#">LOCATIONS</a></li>
                     <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
-                    <li><a href="LogOut.php">LOGOUT</a></li> <!-- Add the logout link -->
+                    <li><a href="LogOut.php">LOGOUT</a></li> 
                 </ul>
             </nav>
         </div>

@@ -1,8 +1,8 @@
 <?php
 session_start();
 if(isset($_SESSION['user_role'])&& $_SESSION['user_role'] === 'admin'){
-// echo "<h3>Welcome te Dashboard</h3>";
-// echo "<br><a href='welcome.php'>back</a>";
+echo "<h3>Welcome te Dashboard</h3>";
+echo "<br><a href='LOGINFORM.php'>back</a>";
 ?>
 
 <!DOCTYPE html>

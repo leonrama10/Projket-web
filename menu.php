@@ -1,4 +1,15 @@
 
+
+<?php
+session_start();
+
+if (!isset($_SESSION['user_role'])) {
+    header('Location: LOGINFORM.php');
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +41,7 @@
                     <li><a href="#">LOCATIONS</a></li>
                     <!-- <li><a href="RegisterForm.php">REGISTER</a></li> -->
                     <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
+                    <li><a href="LogOut.php">LOGOUT</a></li>  
                 </ul>
             </nav>
         </div>

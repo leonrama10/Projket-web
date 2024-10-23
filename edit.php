@@ -43,7 +43,7 @@ if(isset($_POST['editBtn'])){
 
     $password = $_POST['password'];
 
-    $userRepository->updateUser($email,$password,$useremail);
+    $updateUser($email,$password,$useremail);
     header("location:Administrator.php");
 }
 

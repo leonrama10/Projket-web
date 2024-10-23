@@ -9,22 +9,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn) {
         $email = filter_var($_POST['login_email'], FILTER_SANITIZE_EMAIL);
-        $password = $_POST['login_password']; // Plain-text password entered by the user
+        $password = $_POST['login_password'];
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_message = "Invalid email format";
         } else {
-            // Fetch the user by email
+        
             $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
             $stmt->bindParam(1, $email);
             $stmt->execute();
             $user = $stmt->fetch();
 
-            // Compare the plain-text password directly
+           
             if ($user && $password == $user['password']) {
-                // Password is correct, set the session and redirect
+               
                 $_SESSION['user_role'] = (in_array($email, ['denisdushi@gmail.com'])) ? 'admin' : 'user';
-                header("Location: index.php");  // Redirect to homepage
+                header("Location: index.php"); 
                 exit();
             } else {
                 $error_message = "Invalid email or password";
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="hero">
         <div class="form-box">
-            <!-- Show error message if any -->
+        
             <?php if (!empty($error_message)): ?>
                 <div class="error-message"><?php echo $error_message; ?></div>
             <?php endif; ?>
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input name="submit_Login" type="submit" class="submit-btn" value="Log In"><br><br>
             </form>
 
-            <!-- Add Sign Up link below the form -->
+         
             <div class="signup-link">
                 <p>Don't have an account? <a href="RegisterForm.php">Sign Up</a></p>
             </div>

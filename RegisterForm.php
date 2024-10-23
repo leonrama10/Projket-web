@@ -1,34 +1,29 @@
 <?php
 require_once 'DatabaseConnection.php';
-
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   
     $database = new DatabaseConnection();
     $conn = $database->startConnection();
 
     if ($conn) {
         $email = filter_var($_POST['Register_email'], FILTER_SANITIZE_EMAIL);
-        $password = $_POST['Register_password']; 
+        $password = $_POST['Register_password'];
 
-  
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_message = "Invalid email format";
-        } elseif (strlen($password) < 3) {
+        } elseif (strlen($password) < 8) {
             $error_message = "Password must be at least 8 characters";
         } else {
            
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    
             $stmt = $conn->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
             $stmt->bindParam(1, $email);
             $stmt->bindParam(2, $password);
+
             if ($stmt->execute()) {
-                $success_message = "Registered successfully!";
-                header("Location: menu.php");
-                
-             
+                $_SESSION['user_role'] = 'user';  
+                header("Location: index.php"); 
+                exit();
             } else {
                 $error_message = "Registration failed";
             }
@@ -38,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
