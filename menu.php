@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-
+// Check if the user is logged in
 if (!isset($_SESSION['user_role'])) {
     header('Location: LOGINFORM.php');
     exit();
 }
 
-
+// Prevent caching
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -44,25 +44,45 @@ header("Pragma: no-cache");
     </header>
 
     <div class="menu-container">
-        <h1>Our Menu</h1>
+        <!-- Display "Manage Products" heading for admin users only -->
+        <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
+            <h1>Manage Products</h1>
+        <?php endif; ?>
 
         <?php
         include_once 'productRepository.php';
         $productRepository = new ProductRepository();
         $products = $productRepository->getProducts();
 
-        echo "<div class='product-list'>";
-        foreach ($products as $product) {
-            echo "
-            <div class='product-item'>
-                <span class='product-name'>" . htmlspecialchars($product['name']) . "</span>
-                <span class='product-price'>Price: $" . htmlspecialchars($product['price']) . "</span>
-            </div>";
+        // Display the products in a table
+        echo "<table border='1'>";
+        echo "<tr>
+                <th>Product Name</th>
+                <th>Price</th>";
+        
+        // Show Edit and Delete options for admins only
+        if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
+            echo "<th>Edit</th><th>Delete</th>";
         }
-        echo "</div>";
+        
+        echo "</tr>";
+
+        foreach ($products as $product) {
+            echo "<tr>
+                    <td>" . htmlspecialchars($product['name']) . "</td>
+                    <td>$" . htmlspecialchars($product['price']) . "</td>";
+            
+            if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
+                echo "<td><a href='editProduct.php?name=" . urlencode($product['name']) . "'>Edit</a></td>
+                      <td><a href='deleteProduct.php?name=" . urlencode($product['name']) . "' onclick='return confirm(\"Are you sure you want to delete this item?\");'>Delete</a></td>";
+            }
+            
+            echo "</tr>";
+        }
+        echo "</table>";
         ?>
 
-       
+        <!-- Show Add Product Form for Admins Only -->
         <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
             <div class="admin-add-product">
                 <h2>Add Product</h2>
