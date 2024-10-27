@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
-    echo "<h3>Welcome to the Admin Dashboard</h3>";
-    echo "<br><a href='LOGINFORM.php'>Back to Login</a>";
+    echo('ROLE : ADMIN');
+   
 } else {
    
     header('Location: index.php');
