@@ -33,6 +33,29 @@ class ProductRepository{
 
         return $products;
     }
+    function getProductByName($name) {
+        $conn = $this->connection;
+        $sql = "SELECT * FROM products WHERE name = ?";
+        $statement = $conn->prepare($sql);
+        $statement->execute([$name]);
+        return $statement->fetch();
+    }
+    
+    function updateProductByName($name, $newName, $price) {
+        $conn = $this->connection;
+        $sql = "UPDATE products SET name = ?, price = ? WHERE name = ?";
+        $statement = $conn->prepare($sql);
+        $statement->execute([$newName, $price, $name]);
+    }
+    
+    function deleteProductByName($name) {
+        $conn = $this->connection;
+        $sql = "DELETE FROM products WHERE name = ?";
+        $statement = $conn->prepare($sql);
+        $statement->execute([$name]);
+    }
+    
+    
 
 
 
