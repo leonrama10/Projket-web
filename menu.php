@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Check if the user is logged in
 if (!isset($_SESSION['user_role'])) {
     header('Location: LOGINFORM.php');
     exit();
 }
 
-// Prevent caching
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -35,7 +33,7 @@ header("Pragma: no-cache");
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="menu.php">MENUS</a></li>
                     <li><a href="About-us.php">ABOUT US</a></li>
-                    <li><a href="#">LOCATIONS</a></li>
+                    <li><a href="https://www.google.com/maps/dir//UBT+College,+10000+Bulevardi+Bill+Klinton,+Prishtina/@42.6532375,21.0700476,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x13549f47a5602081:0xec721f5ff5e05ca0!2m2!1d21.1462653!2d42.6532375?entry=ttu&g_ep=EgoyMDI0MTAyMy4wIKXMDSoASAFQAw%3D%3D">LOCATIONS</a></li>
                     <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
                     <li><a href="LogOut.php">LOGOUT</a></li>  
                 </ul>
@@ -44,7 +42,6 @@ header("Pragma: no-cache");
     </header>
 
     <div class="menu-container">
-        <!-- Display "Manage Products" heading for admin users only -->
         <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
             <h1>Manage Products</h1>
         <?php endif; ?>
@@ -54,13 +51,12 @@ header("Pragma: no-cache");
         $productRepository = new ProductRepository();
         $products = $productRepository->getProducts();
 
-        // Display the products in a table
+     
         echo "<table border='1'>";
         echo "<tr>
                 <th>Product Name</th>
                 <th>Price</th>";
-        
-        // Show Edit and Delete options for admins only
+     
         if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
             echo "<th>Edit</th><th>Delete</th>";
         }

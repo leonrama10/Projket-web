@@ -38,7 +38,7 @@ header("Pragma: no-cache");
                     <li><a href="menu.php">MENUS</a></li>
                     <!-- <li><a href="LOGINFORM.php">LOGIN</a></li> -->
                     <li><a href="About-us.php">ABOUT US</a></li>
-                    <li><a href="#">LOCATIONS</a></li>
+                    <li><a href="https://www.google.com/maps/dir//UBT+College,+10000+Bulevardi+Bill+Klinton,+Prishtina/@42.6532375,21.0700476,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x13549f47a5602081:0xec721f5ff5e05ca0!2m2!1d21.1462653!2d42.6532375?entry=ttu&g_ep=EgoyMDI0MTAyMy4wIKXMDSoASAFQAw%3D%3D">LOCATIONS</a></li>
                     <!-- <li><a href="#">REGISTER</a></li> -->
                     <li><a class="border-a-1" href="reserving.php">RESERVING</a></li>
                     <li><a href="LogOut.php">LOGOUT</a></li> 
