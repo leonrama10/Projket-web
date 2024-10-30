@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffcc00;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header, .footer {
+    width: 100vw; 
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gold;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+
+header .site-logo h1 {
+    color: gold;
+    text-align: center;
+    margin: 0;
+}
+
+.site-nav_menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.site-nav_menu li a {
+    color: gold;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.site-nav_menu li a:hover {
+    background-color: gold;
+    color: black;
+    border-radius: 4px;
+}
+
+
+.form-container {
+    background-color: #fff;
+    padding: 60px; 
+    border-radius: 8px;
+    border: 3px solid #333;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    min-height: 400px; 
+}
+
+.form-container h3 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 30px; 
+}
+
+.form-container input[type="text"],
+.form-container input[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: gold;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer {
+    background-color: black;
+    color: gold;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto; 
+}
