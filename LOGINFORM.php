@@ -14,21 +14,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_message = "Invalid email format";
         } else {
-            
             $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
             $stmt->bindParam(1, $email);
             $stmt->execute();
             $user = $stmt->fetch();
 
-        
             if ($user && $password == $user['password']) {
-             
+              
+                $_SESSION['email'] = $user['email'];
+
+               
                 if (in_array($email, ['denisdushi@gmail.com'])) {
                     $_SESSION['user_role'] = 'admin';
-                    header("Location: Administrator.php");  
+                    header("Location: Administrator.php");
                 } else {
                     $_SESSION['user_role'] = 'user';
-                    header("Location: index.php"); 
+                    header("Location: index.php");
                 }
                 exit();
             } else {
@@ -52,7 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="hero">
         <div class="form-box">
-          
             <?php if (!empty($error_message)): ?>
                 <div class="error-message"><?php echo $error_message; ?></div>
             <?php endif; ?>
@@ -64,7 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input name="submit_Login" type="submit" class="submit-btn" value="Log In"><br><br>
             </form>
 
-      
             <div class="signup-link">
                 <p>Don't have an account? <a href="RegisterForm.php">Sign Up</a></p>
             </div>

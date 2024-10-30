@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 $_SESSION['user_role'] = 'user';  
-                header("Location: index.php"); 
+                header("Location: LOGINFORM.php"); 
                 exit();
             } else {
                 $error_message = "Registration failed";
