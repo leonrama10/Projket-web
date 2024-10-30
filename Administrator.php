@@ -2,9 +2,7 @@
 session_start();
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
     echo('ROLE : ADMIN');
-   
 } else {
-   
     header('Location: index.php');
     exit();
 }
@@ -22,6 +20,11 @@ header("Pragma: no-cache");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="administrator.css">
     <title>Dashboard</title>
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this?");
+        }
+    </script>
 </head>
 <body>
 
@@ -63,7 +66,7 @@ header("Pragma: no-cache");
             <td>{$user['email']}</td>
             <td>{$user['password']}</td>
             <td><a href='edit.php?id={$user['email']}'>Edit</a></td>
-            <td><a href='delete.php?id={$user['email']}'>Delete</a></td>
+            <td><a href='delete.php?id={$user['email']}' onclick='return confirmDelete();'>Delete</a></td>
         </tr>";
     }
     ?>
