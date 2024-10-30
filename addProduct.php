@@ -1,60 +1,38 @@
 <?php
-  session_start();
+session_start();
 
-
-
-if (!isset($_SESSION['user_role'])) {
-
-    header('Location: LOGINFORM.php');
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+    header('Location: menu.php');
     exit();
 }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="styleProducts.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="styleProducts.css">
 </head>
-
 <body>
 
+<div class="container-box">
+    <h1>Add Product</h1>
+    <form action="addProductController.php" method="POST" enctype="multipart/form-data">
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" placeholder="Product Name" required minlength="3"><br><br>
 
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" placeholder="Price" required><br><br>
 
+        <label for="image">Product Image:</label>
+        <input type="file" id="image" name="image" required><br><br>
 
-
-  <div>
- 
-
-    <div class="container-box">
-        <h1>Add Product</h1>
-
-      <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-      
-        <input type="text" name="name" placeholder="name..."> <br><br>
-        <input type="text" name="price" placeholder="price..."> <br><br>
-
-        <input type="submit" name="addProduct" value="Add "><br><br>
-
-
-      </form>
-      <a href="Productshow.php">Check current menu</a><br><br>
-
-      <?php include_once 'addProductController.php'; ?>
-
-    </div>
-  </div>
-
-  <script type="text/javascript" src="index.js"></script>
-
+        <input type="submit" name="addProduct" value="Add Product">
+    </form>
+    <a href="menu.php">Back to Menu</a>
+</div>
 
 </body>
-
-
 </html>

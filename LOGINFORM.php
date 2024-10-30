@@ -14,21 +14,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_message = "Invalid email format";
         } else {
-            // Fetch the user by email
+            
             $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
             $stmt->bindParam(1, $email);
             $stmt->execute();
             $user = $stmt->fetch();
 
-            // Check if the password matches the one in the database
+        
             if ($user && $password == $user['password']) {
-                // Set the user role based on email
+             
                 if (in_array($email, ['denisdushi@gmail.com'])) {
                     $_SESSION['user_role'] = 'admin';
-                    header("Location: Administrator.php");  // Redirect to Admin Dashboard
+                    header("Location: Administrator.php");  
                 } else {
                     $_SESSION['user_role'] = 'user';
-                    header("Location: index.php");  // Redirect to Home Page
+                    header("Location: index.php"); 
                 }
                 exit();
             } else {
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="hero">
         <div class="form-box">
-            <!-- Show error message if any -->
+          
             <?php if (!empty($error_message)): ?>
                 <div class="error-message"><?php echo $error_message; ?></div>
             <?php endif; ?>
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input name="submit_Login" type="submit" class="submit-btn" value="Log In"><br><br>
             </form>
 
-            <!-- Add Sign Up link below the form -->
+      
             <div class="signup-link">
                 <p>Don't have an account? <a href="RegisterForm.php">Sign Up</a></p>
             </div>

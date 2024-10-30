@@ -1,27 +1,40 @@
 <?php
+include_once 'Product.php';
+include_once 'ProductRepository.php';
 session_start();
 
 if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
-    header('Location: menu.php'); 
+    header('Location: menu.php');
     exit();
 }
 
-include_once 'product.php';
-include_once 'productRepository.php';
-
 if (isset($_POST['addProduct'])) {
-    if (empty($_POST['name']) || empty($_POST['price'])) {
-        echo "All fields are required!";
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $imageUrl = '';
+
+ 
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $imageTmp = $_FILES['image']['tmp_name'];
+        $imageName = basename($_FILES['image']['name']);
+        $imageUrl = 'uploads/' . $imageName;
+
+      
+        if (!is_dir('uploads')) {
+            mkdir('uploads', 0755, true);
+        }
+
+        if (move_uploaded_file($imageTmp, $imageUrl)) {
+            $product = new Product($name, $price, $imageUrl);
+            $productRepository = new ProductRepository();
+            $productRepository->insertProduct($product);
+            header('Location: menu.php');
+            exit();
+        } else {
+            echo "Failed to upload image.";
+        }
     } else {
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-
-        $product = new Product($name, $price);
-        $productRepository = new ProductRepository();
-        $productRepository->insertProduct($product);
-
-        header('Location: menu.php'); 
-        exit();
+        echo "Please select an image.";
     }
 }
 ?>

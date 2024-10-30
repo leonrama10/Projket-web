@@ -1,39 +1,25 @@
 <?php
-class Product{
+class Product {
+    private $name;
+    private $price;
+    private $imageUrl;
 
-private $name;
-private $price;
+    function __construct($name, $price, $imageUrl) {
+        $this->name = $name;
+        $this->price = $price;
+        $this->imageUrl = $imageUrl;
+    }
 
-function __construct($name,$price){
-    $this->name = $name;
-    $this->price = $price;
+    function getName() {
+        return $this->name;
+    }
+
+    function getPrice() {
+        return $this->price;
+    }
+
+    function getImageUrl() {
+        return $this->imageUrl;
+    }
 }
-function getName(){
-    return $this->name;
-}
-function getPrice (){ 
-    return $this->price;
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
